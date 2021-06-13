@@ -56,7 +56,7 @@ namespace DocFx.Plugin.LastModified
                         commitHeaderBuilder.AppendLine($"Author:    {commitInfo.Author.Name}");
                         Logger.LogVerbose("Appending commit SHA...");
                         commitHeaderBuilder.AppendLine($"Commit:    {commitInfo.Sha}");
-                        
+
                         var commitHeader = commitHeaderBuilder.ToString();
                         // truncate to 200 in case of huge commit body
                         var commitBody = commitInfo.Message.Truncate(300);
@@ -120,7 +120,7 @@ namespace DocFx.Plugin.LastModified
                 codeBlockNode.InnerHtml = commitHeader;
                 preCodeBlockNode.AppendChild(codeBlockNode);
                 reasonContainerNode.AppendChild(preCodeBlockNode);
-                
+
                 // inject body
                 preCodeBlockNode = htmlDoc.CreateElement("pre");
                 codeBlockNode = htmlDoc.CreateElement("code");
